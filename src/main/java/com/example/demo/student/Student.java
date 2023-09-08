@@ -2,6 +2,8 @@ package com.example.demo.student;
 
 import java.time.LocalDate;
 
+import javax.persistence.Transient;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,19 +29,20 @@ public class Student {
     private Long id;
     private String name;
     private String email; 
-    private LocalDate dob;
+    private LocalDate dob; 
+    @Transient
     private Integer age;
 
     public Student(){
 
     }
 
-    public Student(Long id, String name, String email, LocalDate dob, Integer age){
-        this.id = id;   this.name = name; this.email = email; this.dob = dob; this.age = age;
+    public Student(Long id, String name, String email, LocalDate dob){
+        this.id = id;   this.name = name; this.email = email; this.dob = dob;
     }
 
-    public Student(String name, String email, LocalDate dob, Integer age){
-        this.name = name; this.email = email; this.dob = dob; this.age = age;
+    public Student(String name, String email, LocalDate dob){
+        this.name = name; this.email = email; this.dob = dob;
     }
 
     public Long getId() {
